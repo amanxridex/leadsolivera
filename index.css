@@ -1,0 +1,374 @@
+:root {
+    --primary: #c9a25b; /* Rich Gold */
+    --primary-dark: #a98342;
+    --bg-dark: #0a0c10; /* Deep Obsidian */
+    --bg-panel: #14171f;
+    --text-main: #f5f5f7;
+    --text-muted: #8b92a5;
+    --border: #2a2f3e;
+    --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.split-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- Left Side Hero --- */
+.hero-section {
+    flex: 1.2;
+    position: relative;
+    background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 4rem;
+}
+
+.hero-section .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(10, 12, 16, 0.9) 0%, rgba(10, 12, 16, 0.4) 50%, rgba(10, 12, 16, 0.8) 100%);
+    z-index: 1;
+}
+
+.brand-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logo-placeholder {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    animation: pulse 3s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    100% { transform: scale(1.05); opacity: 1; text-shadow: 0 0 20px rgba(201, 162, 91, 0.5); }
+}
+
+.logo-text h1 {
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.logo-text p {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: var(--primary);
+    text-transform: uppercase;
+}
+
+.hero-text {
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+.hero-text h2 {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.project-title {
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #fff, #c9a25b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: #cbd0e1;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* --- Right Side Form --- */
+.form-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-panel);
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: -20px 0 50px rgba(0,0,0,0.5);
+    z-index: 5;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+}
+
+.progress-container {
+    height: 3px;
+    background: var(--border);
+    margin-bottom: 3rem;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 25%; /* initial step */
+    background: var(--primary);
+    transition: width 0.6s ease-in-out;
+    box-shadow: 0 0 10px var(--primary);
+}
+
+.multi-step-form {
+    position: relative;
+    min-height: 350px;
+}
+
+.form-step {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-step.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    position: relative;
+}
+
+.form-step.exiting-left {
+    transform: translateX(-50px);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.form-step.entering-right {
+    transform: translateX(50px);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.form-step h3 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.form-step p {
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    font-size: 1.05rem;
+}
+
+/* Inputs */
+.input-group {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.input-group input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    padding: 10px 0;
+    font-size: 1.2rem;
+    color: var(--text-main);
+    outline: none;
+    transition: var(--transition);
+}
+
+.input-group label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    pointer-events: none;
+    transition: 0.3s ease all;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label,
+.input-group input.has-value ~ label {
+    top: -20px;
+    font-size: 0.85rem;
+    color: var(--primary);
+}
+
+.input-group .line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.4s ease;
+}
+
+.input-group input:focus ~ .line {
+    width: 100%;
+}
+
+.select-group {
+    margin-bottom: 2rem;
+}
+
+.select-group select {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    padding: 10px 0;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23c9a25b%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px auto;
+}
+
+.select-group select option {
+    background: var(--bg-panel);
+    color: var(--text-main);
+}
+
+/* Buttons */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.btn-next, .btn-submit {
+    background: var(--primary);
+    color: var(--bg-dark);
+    padding: 14px 32px;
+    border-radius: 30px;
+    gap: 10px;
+}
+
+.btn-next:hover, .btn-submit:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(201, 162, 91, 0.2);
+}
+
+.btn-next .arrow, .btn-submit .arrow {
+    transition: transform 0.3s ease;
+}
+
+.btn-next:hover .arrow, .btn-submit:hover .arrow {
+    transform: translateX(5px);
+}
+
+.btn-prev {
+    color: var(--text-muted);
+    padding: 14px 20px;
+}
+
+.btn-prev:hover {
+    color: var(--text-main);
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+/* Success Step */
+.success-step {
+    text-align: center;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(201, 162, 91, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    color: var(--primary);
+}
+
+.success-icon svg {
+    width: 40px;
+    height: 40px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .split-layout {
+        flex-direction: column;
+    }
+    
+    .hero-section {
+        padding: 3rem 2rem;
+        min-height: 60vh;
+    }
+    
+    .project-title {
+        font-size: 3rem;
+    }
+    
+    .form-section {
+        padding: 3rem 2rem;
+        min-height: 50vh;
+        border-radius: 30px 30px 0 0;
+        margin-top: -30px;
+    }
+}

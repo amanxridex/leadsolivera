@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shri Ji Dham Vrindavan | Olivera Home Developers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="split-layout">
+        <!-- Left Side: Image/Branding -->
+        <div class="hero-section">
+            <div class="overlay"></div>
+            <div class="brand-content">
+                <div class="logo-placeholder">
+                    <span class="logo-icon">✧</span>
+                    <div class="logo-text">
+                        <h1>OLIVERA</h1>
+                        <p>HOME DEVELOPERS</p>
+                    </div>
+                </div>
+                <div class="hero-text">
+                    <h2>Experience Divine Luxury at</h2>
+                    <h1 class="project-title">Shri Ji Dham, Vrindavan</h1>
+                    <p>Secure your piece of serenity in the holy city. Premium residences crafted for the chosen few.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Lead Form -->
+        <div class="form-section">
+            <div class="form-container">
+                <!-- Progress Bar -->
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                
+                <form id="lead-form" class="multi-step-form">
+                    
+                    <!-- Step 1: Introduction -->
+                    <div class="form-step active" data-step="1">
+                        <h3>Welcome</h3>
+                        <p>Let's start with your name.</p>
+                        <div class="input-group">
+                            <input type="text" id="fullName" name="fullName" required>
+                            <label for="fullName">Full Name</label>
+                            <span class="line"></span>
+                        </div>
+                        <button type="button" class="btn-next">Continue <span class="arrow">→</span></button>
+                    </div>
+
+                    <!-- Step 2: Contact -->
+                    <div class="form-step" data-step="2">
+                        <h3>Contact Details</h3>
+                        <p>How can we reach you, <span id="display-name">there</span>?</p>
+                        <div class="input-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Email Address</label>
+                            <span class="line"></span>
+                        </div>
+                        <div class="input-group">
+                            <input type="tel" id="phone" name="phone" required>
+                            <label for="phone">Phone Number</label>
+                            <span class="line"></span>
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn-prev">Back</button>
+                            <button type="button" class="btn-next">Continue <span class="arrow">→</span></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Preferences -->
+                    <div class="form-step" data-step="3">
+                        <h3>Your Preferences</h3>
+                        <p>What kind of property are you looking for?</p>
+                        <div class="select-group">
+                            <select id="propertyType" name="propertyType" required>
+                                <option value="" disabled selected>Select Property Type</option>
+                                <option value="1BHK">1 BHK Luxury Apartment</option>
+                                <option value="2BHK">2 BHK Premium Apartment</option>
+                                <option value="Villa">Independent Villa</option>
+                                <option value="Plot">Residential Plot</option>
+                            </select>
+                        </div>
+                        <div class="select-group">
+                            <select id="budget" name="budget" required>
+                                <option value="" disabled selected>Select Budget Range</option>
+                                <option value="50L-1Cr">₹50 Lacs - ₹1 Crore</option>
+                                <option value="1Cr-2Cr">₹1 Crore - ₹2 Crores</option>
+                                <option value="2Cr+">₹2 Crores +</option>
+                            </select>
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn-prev">Back</button>
+                            <button type="submit" class="btn-submit">Express Interest <span class="arrow">→</span></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Success -->
+                    <div class="form-step success-step" data-step="4">
+                        <div class="success-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"></path></svg>
+                        </div>
+                        <h3>Thank You!</h3>
+                        <p>Your interest in Shri Ji Dham Vrindavan has been registered. Our luxury consultants will contact you shortly.</p>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
