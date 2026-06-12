@@ -72,37 +72,21 @@ body {
     justify-content: space-between;
 }
 
-.logo-placeholder {
+.logo-container {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    margin-bottom: 1rem;
 }
 
-.logo-icon {
-    font-size: 2.8rem;
-    color: var(--primary);
-    animation: pulse 4s infinite alternate;
-    text-shadow: 0 0 20px var(--primary-glow);
+.company-logo {
+    max-width: 200px;
+    height: auto;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+    transition: transform 0.4s ease;
 }
 
-@keyframes pulse {
-    0% { transform: scale(0.95); opacity: 0.8; }
-    100% { transform: scale(1.05); opacity: 1; text-shadow: 0 0 30px var(--primary-glow); }
-}
-
-.logo-text h1 {
-    font-size: 1.6rem;
-    letter-spacing: 6px;
-    font-weight: 600;
-    margin-bottom: 2px;
-}
-
-.logo-text p {
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-    color: var(--primary);
-    text-transform: uppercase;
-    font-weight: 500;
+.company-logo:hover {
+    transform: scale(1.05);
 }
 
 .hero-text {
