@@ -128,41 +128,60 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(10, 12, 16, 0.95);
+    background-color: rgba(8, 10, 13, 0.98);
     padding: 3rem;
     position: relative;
     overflow: hidden;
     z-index: 5;
-    border-left: 1px solid var(--border);
+    border-left: 1px solid rgba(255, 255, 255, 0.03);
 }
 
-/* Add a subtle glow behind the form */
+/* Dynamic animated glow behind the form */
 .form-section::before {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
-    opacity: 0.15;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 60%);
+    opacity: 0.8;
     z-index: -1;
     border-radius: 50%;
-    filter: blur(40px);
+    filter: blur(60px);
+    animation: pulse-glow 10s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+    0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+    100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
 }
 
 .form-container {
     width: 100%;
     max-width: 480px;
     position: relative;
-    background: var(--bg-panel);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    padding: 3rem;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    background: rgba(22, 25, 33, 0.35);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 30px;
+    padding: 3.5rem;
+    box-shadow: 
+        0 40px 80px rgba(0, 0, 0, 0.6), 
+        inset 0 1px 1px rgba(255, 255, 255, 0.2),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.form-container:hover {
+    transform: translateY(-8px);
+    border-color: rgba(212, 175, 55, 0.3);
+    box-shadow: 
+        0 50px 100px rgba(0, 0, 0, 0.7), 
+        0 0 40px rgba(212, 175, 55, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3);
 }
 
 .progress-container {
