@@ -46,7 +46,7 @@ body {
     content: '';
     position: absolute;
     inset: -5%;
-    background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+    background: url('leftimage.png') center/cover no-repeat;
     z-index: 0;
     animation: kenBurns 30s ease-out infinite alternate;
 }
